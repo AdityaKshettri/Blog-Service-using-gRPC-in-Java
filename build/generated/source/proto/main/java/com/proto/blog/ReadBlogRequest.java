@@ -4,25 +4,26 @@
 package com.proto.blog;
 
 /**
- * Protobuf type {@code blog.CreateBlogRequest}
+ * Protobuf type {@code blog.ReadBlogRequest}
  */
-public final class CreateBlogRequest extends
+public final class ReadBlogRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:blog.CreateBlogRequest)
-    CreateBlogRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:blog.ReadBlogRequest)
+    ReadBlogRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use CreateBlogRequest.newBuilder() to construct.
-  private CreateBlogRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ReadBlogRequest.newBuilder() to construct.
+  private ReadBlogRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private CreateBlogRequest() {
+  private ReadBlogRequest() {
+    id_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new CreateBlogRequest();
+    return new ReadBlogRequest();
   }
 
   @java.lang.Override
@@ -30,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateBlogRequest(
+  private ReadBlogRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -49,16 +50,9 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.proto.blog.Blog.Builder subBuilder = null;
-            if (blog_ != null) {
-              subBuilder = blog_.toBuilder();
-            }
-            blog_ = input.readMessage(com.proto.blog.Blog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(blog_);
-              blog_ = subBuilder.buildPartial();
-            }
+            java.lang.String s = input.readStringRequireUtf8();
 
+            id_ = s;
             break;
           }
           default: {
@@ -82,41 +76,53 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_descriptor;
+    return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_fieldAccessorTable
+    return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.proto.blog.CreateBlogRequest.class, com.proto.blog.CreateBlogRequest.Builder.class);
+            com.proto.blog.ReadBlogRequest.class, com.proto.blog.ReadBlogRequest.Builder.class);
   }
 
-  public static final int BLOG_FIELD_NUMBER = 1;
-  private com.proto.blog.Blog blog_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object id_;
   /**
-   * <code>.blog.Blog blog = 1;</code>
-   * @return Whether the blog field is set.
+   * <code>string id = 1;</code>
+   * @return The id.
    */
   @java.lang.Override
-  public boolean hasBlog() {
-    return blog_ != null;
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.blog.Blog blog = 1;</code>
-   * @return The blog.
+   * <code>string id = 1;</code>
+   * @return The bytes for id.
    */
   @java.lang.Override
-  public com.proto.blog.Blog getBlog() {
-    return blog_ == null ? com.proto.blog.Blog.getDefaultInstance() : blog_;
-  }
-  /**
-   * <code>.blog.Blog blog = 1;</code>
-   */
-  @java.lang.Override
-  public com.proto.blog.BlogOrBuilder getBlogOrBuilder() {
-    return getBlog();
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,8 +139,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (blog_ != null) {
-      output.writeMessage(1, getBlog());
+    if (!getIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
     unknownFields.writeTo(output);
   }
@@ -145,9 +151,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (blog_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getBlog());
+    if (!getIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -159,16 +164,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.proto.blog.CreateBlogRequest)) {
+    if (!(obj instanceof com.proto.blog.ReadBlogRequest)) {
       return super.equals(obj);
     }
-    com.proto.blog.CreateBlogRequest other = (com.proto.blog.CreateBlogRequest) obj;
+    com.proto.blog.ReadBlogRequest other = (com.proto.blog.ReadBlogRequest) obj;
 
-    if (hasBlog() != other.hasBlog()) return false;
-    if (hasBlog()) {
-      if (!getBlog()
-          .equals(other.getBlog())) return false;
-    }
+    if (!getId()
+        .equals(other.getId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -180,78 +182,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasBlog()) {
-      hash = (37 * hash) + BLOG_FIELD_NUMBER;
-      hash = (53 * hash) + getBlog().hashCode();
-    }
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(byte[] data)
+  public static com.proto.blog.ReadBlogRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(java.io.InputStream input)
+  public static com.proto.blog.ReadBlogRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.proto.blog.ReadBlogRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.proto.blog.CreateBlogRequest parseDelimitedFrom(
+  public static com.proto.blog.ReadBlogRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.proto.blog.CreateBlogRequest prototype) {
+  public static Builder newBuilder(com.proto.blog.ReadBlogRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code blog.CreateBlogRequest}
+   * Protobuf type {@code blog.ReadBlogRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:blog.CreateBlogRequest)
-      com.proto.blog.CreateBlogRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:blog.ReadBlogRequest)
+      com.proto.blog.ReadBlogRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_descriptor;
+      return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_fieldAccessorTable
+      return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.proto.blog.CreateBlogRequest.class, com.proto.blog.CreateBlogRequest.Builder.class);
+              com.proto.blog.ReadBlogRequest.class, com.proto.blog.ReadBlogRequest.Builder.class);
     }
 
-    // Construct using com.proto.blog.CreateBlogRequest.newBuilder()
+    // Construct using com.proto.blog.ReadBlogRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -317,29 +317,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (blogBuilder_ == null) {
-        blog_ = null;
-      } else {
-        blog_ = null;
-        blogBuilder_ = null;
-      }
+      id_ = "";
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_descriptor;
+      return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.proto.blog.CreateBlogRequest getDefaultInstanceForType() {
-      return com.proto.blog.CreateBlogRequest.getDefaultInstance();
+    public com.proto.blog.ReadBlogRequest getDefaultInstanceForType() {
+      return com.proto.blog.ReadBlogRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.proto.blog.CreateBlogRequest build() {
-      com.proto.blog.CreateBlogRequest result = buildPartial();
+    public com.proto.blog.ReadBlogRequest build() {
+      com.proto.blog.ReadBlogRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -347,13 +343,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.proto.blog.CreateBlogRequest buildPartial() {
-      com.proto.blog.CreateBlogRequest result = new com.proto.blog.CreateBlogRequest(this);
-      if (blogBuilder_ == null) {
-        result.blog_ = blog_;
-      } else {
-        result.blog_ = blogBuilder_.build();
-      }
+    public com.proto.blog.ReadBlogRequest buildPartial() {
+      com.proto.blog.ReadBlogRequest result = new com.proto.blog.ReadBlogRequest(this);
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -392,18 +384,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.proto.blog.CreateBlogRequest) {
-        return mergeFrom((com.proto.blog.CreateBlogRequest)other);
+      if (other instanceof com.proto.blog.ReadBlogRequest) {
+        return mergeFrom((com.proto.blog.ReadBlogRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.proto.blog.CreateBlogRequest other) {
-      if (other == com.proto.blog.CreateBlogRequest.getDefaultInstance()) return this;
-      if (other.hasBlog()) {
-        mergeBlog(other.getBlog());
+    public Builder mergeFrom(com.proto.blog.ReadBlogRequest other) {
+      if (other == com.proto.blog.ReadBlogRequest.getDefaultInstance()) return this;
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -420,11 +413,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.proto.blog.CreateBlogRequest parsedMessage = null;
+      com.proto.blog.ReadBlogRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.proto.blog.CreateBlogRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.proto.blog.ReadBlogRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -434,123 +427,80 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.proto.blog.Blog blog_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.proto.blog.Blog, com.proto.blog.Blog.Builder, com.proto.blog.BlogOrBuilder> blogBuilder_;
+    private java.lang.Object id_ = "";
     /**
-     * <code>.blog.Blog blog = 1;</code>
-     * @return Whether the blog field is set.
+     * <code>string id = 1;</code>
+     * @return The id.
      */
-    public boolean hasBlog() {
-      return blogBuilder_ != null || blog_ != null;
-    }
-    /**
-     * <code>.blog.Blog blog = 1;</code>
-     * @return The blog.
-     */
-    public com.proto.blog.Blog getBlog() {
-      if (blogBuilder_ == null) {
-        return blog_ == null ? com.proto.blog.Blog.getDefaultInstance() : blog_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
       } else {
-        return blogBuilder_.getMessage();
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.blog.Blog blog = 1;</code>
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
-    public Builder setBlog(com.proto.blog.Blog value) {
-      if (blogBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        blog_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
       } else {
-        blogBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>.blog.Blog blog = 1;</code>
+     * <code>string id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
      */
-    public Builder setBlog(
-        com.proto.blog.Blog.Builder builderForValue) {
-      if (blogBuilder_ == null) {
-        blog_ = builderForValue.build();
-        onChanged();
-      } else {
-        blogBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.blog.Blog blog = 1;</code>
-     */
-    public Builder mergeBlog(com.proto.blog.Blog value) {
-      if (blogBuilder_ == null) {
-        if (blog_ != null) {
-          blog_ =
-            com.proto.blog.Blog.newBuilder(blog_).mergeFrom(value).buildPartial();
-        } else {
-          blog_ = value;
-        }
-        onChanged();
-      } else {
-        blogBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.blog.Blog blog = 1;</code>
-     */
-    public Builder clearBlog() {
-      if (blogBuilder_ == null) {
-        blog_ = null;
-        onChanged();
-      } else {
-        blog_ = null;
-        blogBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.blog.Blog blog = 1;</code>
-     */
-    public com.proto.blog.Blog.Builder getBlogBuilder() {
-      
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
       onChanged();
-      return getBlogFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.blog.Blog blog = 1;</code>
+     * <code>string id = 1;</code>
+     * @return This builder for chaining.
      */
-    public com.proto.blog.BlogOrBuilder getBlogOrBuilder() {
-      if (blogBuilder_ != null) {
-        return blogBuilder_.getMessageOrBuilder();
-      } else {
-        return blog_ == null ?
-            com.proto.blog.Blog.getDefaultInstance() : blog_;
-      }
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
     }
     /**
-     * <code>.blog.Blog blog = 1;</code>
+     * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.proto.blog.Blog, com.proto.blog.Blog.Builder, com.proto.blog.BlogOrBuilder> 
-        getBlogFieldBuilder() {
-      if (blogBuilder_ == null) {
-        blogBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.proto.blog.Blog, com.proto.blog.Blog.Builder, com.proto.blog.BlogOrBuilder>(
-                getBlog(),
-                getParentForChildren(),
-                isClean());
-        blog_ = null;
-      }
-      return blogBuilder_;
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -565,41 +515,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:blog.CreateBlogRequest)
+    // @@protoc_insertion_point(builder_scope:blog.ReadBlogRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:blog.CreateBlogRequest)
-  private static final com.proto.blog.CreateBlogRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:blog.ReadBlogRequest)
+  private static final com.proto.blog.ReadBlogRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.proto.blog.CreateBlogRequest();
+    DEFAULT_INSTANCE = new com.proto.blog.ReadBlogRequest();
   }
 
-  public static com.proto.blog.CreateBlogRequest getDefaultInstance() {
+  public static com.proto.blog.ReadBlogRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<CreateBlogRequest>
-      PARSER = new com.google.protobuf.AbstractParser<CreateBlogRequest>() {
+  private static final com.google.protobuf.Parser<ReadBlogRequest>
+      PARSER = new com.google.protobuf.AbstractParser<ReadBlogRequest>() {
     @java.lang.Override
-    public CreateBlogRequest parsePartialFrom(
+    public ReadBlogRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateBlogRequest(input, extensionRegistry);
+      return new ReadBlogRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<CreateBlogRequest> parser() {
+  public static com.google.protobuf.Parser<ReadBlogRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<CreateBlogRequest> getParserForType() {
+  public com.google.protobuf.Parser<ReadBlogRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.proto.blog.CreateBlogRequest getDefaultInstanceForType() {
+  public com.proto.blog.ReadBlogRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

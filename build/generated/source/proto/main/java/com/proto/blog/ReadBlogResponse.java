@@ -4,25 +4,25 @@
 package com.proto.blog;
 
 /**
- * Protobuf type {@code blog.CreateBlogRequest}
+ * Protobuf type {@code blog.ReadBlogResponse}
  */
-public final class CreateBlogRequest extends
+public final class ReadBlogResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:blog.CreateBlogRequest)
-    CreateBlogRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:blog.ReadBlogResponse)
+    ReadBlogResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use CreateBlogRequest.newBuilder() to construct.
-  private CreateBlogRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ReadBlogResponse.newBuilder() to construct.
+  private ReadBlogResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private CreateBlogRequest() {
+  private ReadBlogResponse() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new CreateBlogRequest();
+    return new ReadBlogResponse();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateBlogRequest(
+  private ReadBlogResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -82,15 +82,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_descriptor;
+    return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_fieldAccessorTable
+    return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.proto.blog.CreateBlogRequest.class, com.proto.blog.CreateBlogRequest.Builder.class);
+            com.proto.blog.ReadBlogResponse.class, com.proto.blog.ReadBlogResponse.Builder.class);
   }
 
   public static final int BLOG_FIELD_NUMBER = 1;
@@ -159,10 +159,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.proto.blog.CreateBlogRequest)) {
+    if (!(obj instanceof com.proto.blog.ReadBlogResponse)) {
       return super.equals(obj);
     }
-    com.proto.blog.CreateBlogRequest other = (com.proto.blog.CreateBlogRequest) obj;
+    com.proto.blog.ReadBlogResponse other = (com.proto.blog.ReadBlogResponse) obj;
 
     if (hasBlog() != other.hasBlog()) return false;
     if (hasBlog()) {
@@ -189,69 +189,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(byte[] data)
+  public static com.proto.blog.ReadBlogResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(java.io.InputStream input)
+  public static com.proto.blog.ReadBlogResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.proto.blog.ReadBlogResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.proto.blog.CreateBlogRequest parseDelimitedFrom(
+  public static com.proto.blog.ReadBlogResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.proto.blog.CreateBlogRequest parseFrom(
+  public static com.proto.blog.ReadBlogResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.proto.blog.CreateBlogRequest prototype) {
+  public static Builder newBuilder(com.proto.blog.ReadBlogResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code blog.CreateBlogRequest}
+   * Protobuf type {@code blog.ReadBlogResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:blog.CreateBlogRequest)
-      com.proto.blog.CreateBlogRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:blog.ReadBlogResponse)
+      com.proto.blog.ReadBlogResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_descriptor;
+      return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_fieldAccessorTable
+      return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.proto.blog.CreateBlogRequest.class, com.proto.blog.CreateBlogRequest.Builder.class);
+              com.proto.blog.ReadBlogResponse.class, com.proto.blog.ReadBlogResponse.Builder.class);
     }
 
-    // Construct using com.proto.blog.CreateBlogRequest.newBuilder()
+    // Construct using com.proto.blog.ReadBlogResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -329,17 +329,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.proto.blog.BlogOuterClass.internal_static_blog_CreateBlogRequest_descriptor;
+      return com.proto.blog.BlogOuterClass.internal_static_blog_ReadBlogResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.proto.blog.CreateBlogRequest getDefaultInstanceForType() {
-      return com.proto.blog.CreateBlogRequest.getDefaultInstance();
+    public com.proto.blog.ReadBlogResponse getDefaultInstanceForType() {
+      return com.proto.blog.ReadBlogResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.proto.blog.CreateBlogRequest build() {
-      com.proto.blog.CreateBlogRequest result = buildPartial();
+    public com.proto.blog.ReadBlogResponse build() {
+      com.proto.blog.ReadBlogResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -347,8 +347,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.proto.blog.CreateBlogRequest buildPartial() {
-      com.proto.blog.CreateBlogRequest result = new com.proto.blog.CreateBlogRequest(this);
+    public com.proto.blog.ReadBlogResponse buildPartial() {
+      com.proto.blog.ReadBlogResponse result = new com.proto.blog.ReadBlogResponse(this);
       if (blogBuilder_ == null) {
         result.blog_ = blog_;
       } else {
@@ -392,16 +392,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.proto.blog.CreateBlogRequest) {
-        return mergeFrom((com.proto.blog.CreateBlogRequest)other);
+      if (other instanceof com.proto.blog.ReadBlogResponse) {
+        return mergeFrom((com.proto.blog.ReadBlogResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.proto.blog.CreateBlogRequest other) {
-      if (other == com.proto.blog.CreateBlogRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.proto.blog.ReadBlogResponse other) {
+      if (other == com.proto.blog.ReadBlogResponse.getDefaultInstance()) return this;
       if (other.hasBlog()) {
         mergeBlog(other.getBlog());
       }
@@ -420,11 +420,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.proto.blog.CreateBlogRequest parsedMessage = null;
+      com.proto.blog.ReadBlogResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.proto.blog.CreateBlogRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.proto.blog.ReadBlogResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -565,41 +565,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:blog.CreateBlogRequest)
+    // @@protoc_insertion_point(builder_scope:blog.ReadBlogResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:blog.CreateBlogRequest)
-  private static final com.proto.blog.CreateBlogRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:blog.ReadBlogResponse)
+  private static final com.proto.blog.ReadBlogResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.proto.blog.CreateBlogRequest();
+    DEFAULT_INSTANCE = new com.proto.blog.ReadBlogResponse();
   }
 
-  public static com.proto.blog.CreateBlogRequest getDefaultInstance() {
+  public static com.proto.blog.ReadBlogResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<CreateBlogRequest>
-      PARSER = new com.google.protobuf.AbstractParser<CreateBlogRequest>() {
+  private static final com.google.protobuf.Parser<ReadBlogResponse>
+      PARSER = new com.google.protobuf.AbstractParser<ReadBlogResponse>() {
     @java.lang.Override
-    public CreateBlogRequest parsePartialFrom(
+    public ReadBlogResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateBlogRequest(input, extensionRegistry);
+      return new ReadBlogResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<CreateBlogRequest> parser() {
+  public static com.google.protobuf.Parser<ReadBlogResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<CreateBlogRequest> getParserForType() {
+  public com.google.protobuf.Parser<ReadBlogResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.proto.blog.CreateBlogRequest getDefaultInstanceForType() {
+  public com.proto.blog.ReadBlogResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

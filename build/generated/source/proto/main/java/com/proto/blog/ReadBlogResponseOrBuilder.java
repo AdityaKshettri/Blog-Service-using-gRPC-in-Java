@@ -3,8 +3,8 @@
 
 package com.proto.blog;
 
-public interface CreateBlogResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:blog.CreateBlogResponse)
+public interface ReadBlogResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:blog.ReadBlogResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

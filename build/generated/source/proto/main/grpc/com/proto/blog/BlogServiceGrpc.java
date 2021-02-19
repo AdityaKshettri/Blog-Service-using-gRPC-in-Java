@@ -45,6 +45,37 @@ public final class BlogServiceGrpc {
     return getCreateBlogMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.proto.blog.ReadBlogRequest,
+      com.proto.blog.ReadBlogResponse> getReadBlogMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ReadBlog",
+      requestType = com.proto.blog.ReadBlogRequest.class,
+      responseType = com.proto.blog.ReadBlogResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.proto.blog.ReadBlogRequest,
+      com.proto.blog.ReadBlogResponse> getReadBlogMethod() {
+    io.grpc.MethodDescriptor<com.proto.blog.ReadBlogRequest, com.proto.blog.ReadBlogResponse> getReadBlogMethod;
+    if ((getReadBlogMethod = BlogServiceGrpc.getReadBlogMethod) == null) {
+      synchronized (BlogServiceGrpc.class) {
+        if ((getReadBlogMethod = BlogServiceGrpc.getReadBlogMethod) == null) {
+          BlogServiceGrpc.getReadBlogMethod = getReadBlogMethod =
+              io.grpc.MethodDescriptor.<com.proto.blog.ReadBlogRequest, com.proto.blog.ReadBlogResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadBlog"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.blog.ReadBlogRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.blog.ReadBlogResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new BlogServiceMethodDescriptorSupplier("ReadBlog"))
+              .build();
+        }
+      }
+    }
+    return getReadBlogMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -100,6 +131,13 @@ public final class BlogServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateBlogMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void readBlog(com.proto.blog.ReadBlogRequest request,
+        io.grpc.stub.StreamObserver<com.proto.blog.ReadBlogResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReadBlogMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -109,6 +147,13 @@ public final class BlogServiceGrpc {
                 com.proto.blog.CreateBlogRequest,
                 com.proto.blog.CreateBlogResponse>(
                   this, METHODID_CREATE_BLOG)))
+          .addMethod(
+            getReadBlogMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.proto.blog.ReadBlogRequest,
+                com.proto.blog.ReadBlogResponse>(
+                  this, METHODID_READ_BLOG)))
           .build();
     }
   }
@@ -134,6 +179,14 @@ public final class BlogServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateBlogMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void readBlog(com.proto.blog.ReadBlogRequest request,
+        io.grpc.stub.StreamObserver<com.proto.blog.ReadBlogResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getReadBlogMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -155,6 +208,13 @@ public final class BlogServiceGrpc {
     public com.proto.blog.CreateBlogResponse createBlog(com.proto.blog.CreateBlogRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateBlogMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.proto.blog.ReadBlogResponse readBlog(com.proto.blog.ReadBlogRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getReadBlogMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,9 +239,18 @@ public final class BlogServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateBlogMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.proto.blog.ReadBlogResponse> readBlog(
+        com.proto.blog.ReadBlogRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getReadBlogMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_BLOG = 0;
+  private static final int METHODID_READ_BLOG = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -203,6 +272,10 @@ public final class BlogServiceGrpc {
         case METHODID_CREATE_BLOG:
           serviceImpl.createBlog((com.proto.blog.CreateBlogRequest) request,
               (io.grpc.stub.StreamObserver<com.proto.blog.CreateBlogResponse>) responseObserver);
+          break;
+        case METHODID_READ_BLOG:
+          serviceImpl.readBlog((com.proto.blog.ReadBlogRequest) request,
+              (io.grpc.stub.StreamObserver<com.proto.blog.ReadBlogResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -266,6 +339,7 @@ public final class BlogServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new BlogServiceFileDescriptorSupplier())
               .addMethod(getCreateBlogMethod())
+              .addMethod(getReadBlogMethod())
               .build();
         }
       }

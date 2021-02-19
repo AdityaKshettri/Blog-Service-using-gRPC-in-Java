@@ -96,10 +96,6 @@ private static final long serialVersionUID = 0L;
   public static final int BLOG_FIELD_NUMBER = 1;
   private com.proto.blog.Blog blog_;
   /**
-   * <pre>
-   * id should correspond to the one in db
-   * </pre>
-   *
    * <code>.blog.Blog blog = 1;</code>
    * @return Whether the blog field is set.
    */
@@ -108,10 +104,6 @@ private static final long serialVersionUID = 0L;
     return blog_ != null;
   }
   /**
-   * <pre>
-   * id should correspond to the one in db
-   * </pre>
-   *
    * <code>.blog.Blog blog = 1;</code>
    * @return The blog.
    */
@@ -120,10 +112,6 @@ private static final long serialVersionUID = 0L;
     return blog_ == null ? com.proto.blog.Blog.getDefaultInstance() : blog_;
   }
   /**
-   * <pre>
-   * id should correspond to the one in db
-   * </pre>
-   *
    * <code>.blog.Blog blog = 1;</code>
    */
   @java.lang.Override
@@ -450,10 +438,6 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.proto.blog.Blog, com.proto.blog.Blog.Builder, com.proto.blog.BlogOrBuilder> blogBuilder_;
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      * @return Whether the blog field is set.
      */
@@ -461,10 +445,6 @@ private static final long serialVersionUID = 0L;
       return blogBuilder_ != null || blog_ != null;
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      * @return The blog.
      */
@@ -476,10 +456,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     public Builder setBlog(com.proto.blog.Blog value) {
@@ -496,10 +472,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     public Builder setBlog(
@@ -514,10 +486,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     public Builder mergeBlog(com.proto.blog.Blog value) {
@@ -536,10 +504,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     public Builder clearBlog() {
@@ -554,10 +518,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     public com.proto.blog.Blog.Builder getBlogBuilder() {
@@ -566,10 +526,6 @@ private static final long serialVersionUID = 0L;
       return getBlogFieldBuilder().getBuilder();
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     public com.proto.blog.BlogOrBuilder getBlogOrBuilder() {
@@ -581,10 +537,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * id should correspond to the one in db
-     * </pre>
-     *
      * <code>.blog.Blog blog = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<

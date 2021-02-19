@@ -13,13 +13,22 @@ message Blog {
 }
 
 message CreateBlogRequest {
-  Blog blog = 1; // id shouldn't matter here
+  Blog blog = 1;
 }
 
 message CreateBlogResponse {
-  Blog blog = 1; // id should correspond to the one in db
+  Blog blog = 1;
+}
+
+message ReadBlogRequest {
+  string id = 1;
+}
+
+message ReadBlogResponse {
+  Blog blog = 1;
 }
 
 service BlogService {
   rpc CreateBlog(CreateBlogRequest) returns (CreateBlogResponse) {};
+  rpc ReadBlog(ReadBlogRequest) returns (ReadBlogResponse) {};
 }
