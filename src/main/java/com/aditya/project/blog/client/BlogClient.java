@@ -6,6 +6,8 @@ import com.proto.blog.CreateBlogRequest;
 import com.proto.blog.CreateBlogResponse;
 import com.proto.blog.ReadBlogRequest;
 import com.proto.blog.ReadBlogResponse;
+import com.proto.blog.UpdateBlogRequest;
+import com.proto.blog.UpdateBlogResponse;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -22,7 +24,11 @@ public class BlogClient {
                 .usePlaintext()
                 .build();
 
+        // Created sync Client for Blogs
         BlogServiceGrpc.BlogServiceBlockingStub blogClient = BlogServiceGrpc.newBlockingStub(channel);
+
+        // Creating a Blog
+        System.out.println("Reading blog...");
         Blog blog = Blog.newBuilder()
                 .setAuthorId("Aditya")
                 .setTitle("First Blog")
@@ -35,6 +41,7 @@ public class BlogClient {
         System.out.println("Received Create Blog Response.");
         System.out.println(createBlogResponse.toString());
 
+        // Reading a Blog
         System.out.println("Reading blog...");
         ReadBlogRequest readBlogRequest = ReadBlogRequest.newBuilder()
                 .setId(createBlogResponse.getBlog().getId())
@@ -42,6 +49,20 @@ public class BlogClient {
         ReadBlogResponse readBlogResponse = blogClient.readBlog(readBlogRequest);
         System.out.println("Received Read Blog Response.");
         System.out.println(readBlogResponse.toString());
+
+        // Updating a Blog
+        Blog newBlog = Blog.newBuilder()
+                .setId(createBlogResponse.getBlog().getId())
+                .setAuthorId("Aditya Kshettri")
+                .setTitle("First Blog updated")
+                .setContent("This is my new blog! updated")
+                .build();
+        UpdateBlogRequest updateBlogRequest = UpdateBlogRequest.newBuilder()
+                .setBlog(newBlog)
+                .build();
+        UpdateBlogResponse updateBlogResponse = blogClient.updateBlog(updateBlogRequest);
+        System.out.println("Updated Blog.");
+        System.out.println(updateBlogResponse.toString());
 
         channel.shutdown();
     }

@@ -39,6 +39,16 @@ public final class BlogOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_blog_ReadBlogResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_blog_UpdateBlogRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_blog_UpdateBlogRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_blog_UpdateBlogResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_blog_UpdateBlogResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -54,11 +64,15 @@ public final class BlogOuterClass {
       " \001(\0132\n.blog.Blog\".\n\022CreateBlogResponse\022\030" +
       "\n\004blog\030\001 \001(\0132\n.blog.Blog\"\035\n\017ReadBlogRequ" +
       "est\022\n\n\002id\030\001 \001(\t\",\n\020ReadBlogResponse\022\030\n\004b" +
-      "log\030\001 \001(\0132\n.blog.Blog2\215\001\n\013BlogService\022A\n" +
-      "\nCreateBlog\022\027.blog.CreateBlogRequest\032\030.b" +
-      "log.CreateBlogResponse\"\000\022;\n\010ReadBlog\022\025.b" +
-      "log.ReadBlogRequest\032\026.blog.ReadBlogRespo" +
-      "nse\"\000B\022\n\016com.proto.blogP\001b\006proto3"
+      "log\030\001 \001(\0132\n.blog.Blog\"-\n\021UpdateBlogReque" +
+      "st\022\030\n\004blog\030\001 \001(\0132\n.blog.Blog\".\n\022UpdateBl" +
+      "ogResponse\022\030\n\004blog\030\001 \001(\0132\n.blog.Blog2\320\001\n" +
+      "\013BlogService\022A\n\nCreateBlog\022\027.blog.Create" +
+      "BlogRequest\032\030.blog.CreateBlogResponse\"\000\022" +
+      ";\n\010ReadBlog\022\025.blog.ReadBlogRequest\032\026.blo" +
+      "g.ReadBlogResponse\"\000\022A\n\nUpdateBlog\022\027.blo" +
+      "g.UpdateBlogRequest\032\030.blog.UpdateBlogRes" +
+      "ponse\"\000B\022\n\016com.proto.blogP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -93,6 +107,18 @@ public final class BlogOuterClass {
     internal_static_blog_ReadBlogResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_blog_ReadBlogResponse_descriptor,
+        new java.lang.String[] { "Blog", });
+    internal_static_blog_UpdateBlogRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_blog_UpdateBlogRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_blog_UpdateBlogRequest_descriptor,
+        new java.lang.String[] { "Blog", });
+    internal_static_blog_UpdateBlogResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_blog_UpdateBlogResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_blog_UpdateBlogResponse_descriptor,
         new java.lang.String[] { "Blog", });
   }
 
