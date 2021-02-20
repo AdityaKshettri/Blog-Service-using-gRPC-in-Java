@@ -4,6 +4,8 @@ import com.proto.blog.Blog;
 import com.proto.blog.BlogServiceGrpc;
 import com.proto.blog.CreateBlogRequest;
 import com.proto.blog.CreateBlogResponse;
+import com.proto.blog.DeleteBlogRequest;
+import com.proto.blog.DeleteBlogResponse;
 import com.proto.blog.ReadBlogRequest;
 import com.proto.blog.ReadBlogResponse;
 import com.proto.blog.UpdateBlogRequest;
@@ -51,6 +53,7 @@ public class BlogClient {
         System.out.println(readBlogResponse.toString());
 
         // Updating a Blog
+        System.out.println("Updating blog...");
         Blog newBlog = Blog.newBuilder()
                 .setId(createBlogResponse.getBlog().getId())
                 .setAuthorId("Aditya Kshettri")
@@ -63,6 +66,15 @@ public class BlogClient {
         UpdateBlogResponse updateBlogResponse = blogClient.updateBlog(updateBlogRequest);
         System.out.println("Updated Blog.");
         System.out.println(updateBlogResponse.toString());
+
+        // Deleting a blog
+        System.out.println("Deleting blog...");
+        DeleteBlogRequest deleteBlogRequest = DeleteBlogRequest.newBuilder()
+                .setId(createBlogResponse.getBlog().getId())
+                .build();
+        DeleteBlogResponse deleteBlogResponse = blogClient.deleteBlog(deleteBlogRequest);
+        System.out.println("Deleted blog...");
+        System.out.println(deleteBlogResponse.getId());
 
         channel.shutdown();
     }

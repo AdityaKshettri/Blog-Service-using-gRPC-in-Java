@@ -4,10 +4,13 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.DeleteResult;
 import com.proto.blog.Blog;
 import com.proto.blog.BlogServiceGrpc;
 import com.proto.blog.CreateBlogRequest;
 import com.proto.blog.CreateBlogResponse;
+import com.proto.blog.DeleteBlogRequest;
+import com.proto.blog.DeleteBlogResponse;
 import com.proto.blog.ReadBlogRequest;
 import com.proto.blog.ReadBlogResponse;
 import com.proto.blog.UpdateBlogRequest;
@@ -111,6 +114,35 @@ public class BlogServiceImpl extends BlogServiceGrpc.BlogServiceImplBase {
                     .setBlog(blog)
                     .build();
             System.out.println("Received! Sending Response...");
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
+
+    @Override
+    public void deleteBlog(DeleteBlogRequest request, StreamObserver<DeleteBlogResponse> responseObserver) {
+        System.out.println("Received Delete Blog Request...");
+        String id = request.getId();
+        DeleteResult result = null;
+        try {
+            result = collection.deleteOne(eq("_id", new ObjectId(id)));
+        } catch (Exception e) {
+            System.out.println("Exception occurred while finding blog!");
+            responseObserver.onError(Status.NOT_FOUND
+                    .withDescription("The blog with corresponding id not found! " + id)
+                    .augmentDescription(e.getLocalizedMessage())
+                    .asRuntimeException());
+        }
+        if(result != null && result.getDeletedCount() == 0) {
+            System.out.println("The blog with corresponding id was not found!");
+            responseObserver.onError(Status.NOT_FOUND
+                    .withDescription("The blog with corresponding id not found! " + id)
+                    .asRuntimeException());
+        } else {
+            System.out.println("Blog was deleted!");
+            DeleteBlogResponse response = DeleteBlogResponse.newBuilder()
+                    .setId(id)
+                    .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }

@@ -107,6 +107,37 @@ public final class BlogServiceGrpc {
     return getUpdateBlogMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.proto.blog.DeleteBlogRequest,
+      com.proto.blog.DeleteBlogResponse> getDeleteBlogMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DeleteBlog",
+      requestType = com.proto.blog.DeleteBlogRequest.class,
+      responseType = com.proto.blog.DeleteBlogResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.proto.blog.DeleteBlogRequest,
+      com.proto.blog.DeleteBlogResponse> getDeleteBlogMethod() {
+    io.grpc.MethodDescriptor<com.proto.blog.DeleteBlogRequest, com.proto.blog.DeleteBlogResponse> getDeleteBlogMethod;
+    if ((getDeleteBlogMethod = BlogServiceGrpc.getDeleteBlogMethod) == null) {
+      synchronized (BlogServiceGrpc.class) {
+        if ((getDeleteBlogMethod = BlogServiceGrpc.getDeleteBlogMethod) == null) {
+          BlogServiceGrpc.getDeleteBlogMethod = getDeleteBlogMethod =
+              io.grpc.MethodDescriptor.<com.proto.blog.DeleteBlogRequest, com.proto.blog.DeleteBlogResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteBlog"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.blog.DeleteBlogRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.blog.DeleteBlogResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new BlogServiceMethodDescriptorSupplier("DeleteBlog"))
+              .build();
+        }
+      }
+    }
+    return getDeleteBlogMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -176,6 +207,13 @@ public final class BlogServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateBlogMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void deleteBlog(com.proto.blog.DeleteBlogRequest request,
+        io.grpc.stub.StreamObserver<com.proto.blog.DeleteBlogResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteBlogMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -199,6 +237,13 @@ public final class BlogServiceGrpc {
                 com.proto.blog.UpdateBlogRequest,
                 com.proto.blog.UpdateBlogResponse>(
                   this, METHODID_UPDATE_BLOG)))
+          .addMethod(
+            getDeleteBlogMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.proto.blog.DeleteBlogRequest,
+                com.proto.blog.DeleteBlogResponse>(
+                  this, METHODID_DELETE_BLOG)))
           .build();
     }
   }
@@ -240,6 +285,14 @@ public final class BlogServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateBlogMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deleteBlog(com.proto.blog.DeleteBlogRequest request,
+        io.grpc.stub.StreamObserver<com.proto.blog.DeleteBlogResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteBlogMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -275,6 +328,13 @@ public final class BlogServiceGrpc {
     public com.proto.blog.UpdateBlogResponse updateBlog(com.proto.blog.UpdateBlogRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateBlogMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.proto.blog.DeleteBlogResponse deleteBlog(com.proto.blog.DeleteBlogRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteBlogMethod(), getCallOptions(), request);
     }
   }
 
@@ -315,11 +375,20 @@ public final class BlogServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateBlogMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.proto.blog.DeleteBlogResponse> deleteBlog(
+        com.proto.blog.DeleteBlogRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteBlogMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_BLOG = 0;
   private static final int METHODID_READ_BLOG = 1;
   private static final int METHODID_UPDATE_BLOG = 2;
+  private static final int METHODID_DELETE_BLOG = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -349,6 +418,10 @@ public final class BlogServiceGrpc {
         case METHODID_UPDATE_BLOG:
           serviceImpl.updateBlog((com.proto.blog.UpdateBlogRequest) request,
               (io.grpc.stub.StreamObserver<com.proto.blog.UpdateBlogResponse>) responseObserver);
+          break;
+        case METHODID_DELETE_BLOG:
+          serviceImpl.deleteBlog((com.proto.blog.DeleteBlogRequest) request,
+              (io.grpc.stub.StreamObserver<com.proto.blog.DeleteBlogResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -414,6 +487,7 @@ public final class BlogServiceGrpc {
               .addMethod(getCreateBlogMethod())
               .addMethod(getReadBlogMethod())
               .addMethod(getUpdateBlogMethod())
+              .addMethod(getDeleteBlogMethod())
               .build();
         }
       }
