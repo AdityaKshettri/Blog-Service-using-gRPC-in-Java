@@ -138,6 +138,37 @@ public final class BlogServiceGrpc {
     return getDeleteBlogMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.proto.blog.ListBlogRequest,
+      com.proto.blog.ListBlogResponse> getListBlogMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListBlog",
+      requestType = com.proto.blog.ListBlogRequest.class,
+      responseType = com.proto.blog.ListBlogResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.proto.blog.ListBlogRequest,
+      com.proto.blog.ListBlogResponse> getListBlogMethod() {
+    io.grpc.MethodDescriptor<com.proto.blog.ListBlogRequest, com.proto.blog.ListBlogResponse> getListBlogMethod;
+    if ((getListBlogMethod = BlogServiceGrpc.getListBlogMethod) == null) {
+      synchronized (BlogServiceGrpc.class) {
+        if ((getListBlogMethod = BlogServiceGrpc.getListBlogMethod) == null) {
+          BlogServiceGrpc.getListBlogMethod = getListBlogMethod =
+              io.grpc.MethodDescriptor.<com.proto.blog.ListBlogRequest, com.proto.blog.ListBlogResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListBlog"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.blog.ListBlogRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.blog.ListBlogResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new BlogServiceMethodDescriptorSupplier("ListBlog"))
+              .build();
+        }
+      }
+    }
+    return getListBlogMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -214,6 +245,13 @@ public final class BlogServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteBlogMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void listBlog(com.proto.blog.ListBlogRequest request,
+        io.grpc.stub.StreamObserver<com.proto.blog.ListBlogResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBlogMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -244,6 +282,13 @@ public final class BlogServiceGrpc {
                 com.proto.blog.DeleteBlogRequest,
                 com.proto.blog.DeleteBlogResponse>(
                   this, METHODID_DELETE_BLOG)))
+          .addMethod(
+            getListBlogMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                com.proto.blog.ListBlogRequest,
+                com.proto.blog.ListBlogResponse>(
+                  this, METHODID_LIST_BLOG)))
           .build();
     }
   }
@@ -293,6 +338,14 @@ public final class BlogServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteBlogMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void listBlog(com.proto.blog.ListBlogRequest request,
+        io.grpc.stub.StreamObserver<com.proto.blog.ListBlogResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getListBlogMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -335,6 +388,14 @@ public final class BlogServiceGrpc {
     public com.proto.blog.DeleteBlogResponse deleteBlog(com.proto.blog.DeleteBlogRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteBlogMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.proto.blog.ListBlogResponse> listBlog(
+        com.proto.blog.ListBlogRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getListBlogMethod(), getCallOptions(), request);
     }
   }
 
@@ -389,6 +450,7 @@ public final class BlogServiceGrpc {
   private static final int METHODID_READ_BLOG = 1;
   private static final int METHODID_UPDATE_BLOG = 2;
   private static final int METHODID_DELETE_BLOG = 3;
+  private static final int METHODID_LIST_BLOG = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -422,6 +484,10 @@ public final class BlogServiceGrpc {
         case METHODID_DELETE_BLOG:
           serviceImpl.deleteBlog((com.proto.blog.DeleteBlogRequest) request,
               (io.grpc.stub.StreamObserver<com.proto.blog.DeleteBlogResponse>) responseObserver);
+          break;
+        case METHODID_LIST_BLOG:
+          serviceImpl.listBlog((com.proto.blog.ListBlogRequest) request,
+              (io.grpc.stub.StreamObserver<com.proto.blog.ListBlogResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -488,6 +554,7 @@ public final class BlogServiceGrpc {
               .addMethod(getReadBlogMethod())
               .addMethod(getUpdateBlogMethod())
               .addMethod(getDeleteBlogMethod())
+              .addMethod(getListBlogMethod())
               .build();
         }
       }

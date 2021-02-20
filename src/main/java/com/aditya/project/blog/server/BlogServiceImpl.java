@@ -11,6 +11,8 @@ import com.proto.blog.CreateBlogRequest;
 import com.proto.blog.CreateBlogResponse;
 import com.proto.blog.DeleteBlogRequest;
 import com.proto.blog.DeleteBlogResponse;
+import com.proto.blog.ListBlogRequest;
+import com.proto.blog.ListBlogResponse;
 import com.proto.blog.ReadBlogRequest;
 import com.proto.blog.ReadBlogResponse;
 import com.proto.blog.UpdateBlogRequest;
@@ -146,6 +148,19 @@ public class BlogServiceImpl extends BlogServiceGrpc.BlogServiceImplBase {
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
+    }
+
+    @Override
+    public void listBlog(ListBlogRequest request, StreamObserver<ListBlogResponse> responseObserver) {
+        System.out.println("Received List Blog Request.");
+        collection.find().forEach(document -> {
+            Blog blog = documentToBlog(document);
+            ListBlogResponse response = ListBlogResponse.newBuilder()
+                    .setBlog(blog)
+                    .build();
+            responseObserver.onNext(response);
+        });
+        responseObserver.onCompleted();
     }
 
     private Blog documentToBlog(Document document) {

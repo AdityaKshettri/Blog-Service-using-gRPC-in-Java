@@ -6,6 +6,7 @@ import com.proto.blog.CreateBlogRequest;
 import com.proto.blog.CreateBlogResponse;
 import com.proto.blog.DeleteBlogRequest;
 import com.proto.blog.DeleteBlogResponse;
+import com.proto.blog.ListBlogRequest;
 import com.proto.blog.ReadBlogRequest;
 import com.proto.blog.ReadBlogResponse;
 import com.proto.blog.UpdateBlogRequest;
@@ -30,7 +31,7 @@ public class BlogClient {
         BlogServiceGrpc.BlogServiceBlockingStub blogClient = BlogServiceGrpc.newBlockingStub(channel);
 
         // Creating a Blog
-        System.out.println("Reading blog...");
+        System.out.println("Creating blog...");
         Blog blog = Blog.newBuilder()
                 .setAuthorId("Aditya")
                 .setTitle("First Blog")
@@ -75,6 +76,13 @@ public class BlogClient {
         DeleteBlogResponse deleteBlogResponse = blogClient.deleteBlog(deleteBlogRequest);
         System.out.println("Deleted blog...");
         System.out.println(deleteBlogResponse.getId());
+
+        // Listing all Blogs
+        System.out.println("Listing all blogs...");
+        ListBlogRequest listBlogRequest = ListBlogRequest.newBuilder()
+                .build();
+        blogClient.listBlog(listBlogRequest)
+                .forEachRemaining(response -> System.out.println(response.getBlog().toString()));
 
         channel.shutdown();
     }
