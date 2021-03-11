@@ -26,7 +26,7 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class BlogServiceImpl extends BlogServiceGrpc.BlogServiceImplBase {
 
-    private final MongoClient mongoClient = MongoClients.create("mongodb+srv://root:1234@cluster0-2kdyk.mongodb.net");
+    private final MongoClient mongoClient = MongoClients.create("mongodb+srv://<username>:<password>@cluster0-2kdyk.mongodb.net");
     private final MongoDatabase database = mongoClient.getDatabase("mydb");
     private final MongoCollection<Document> collection = database.getCollection("blogs");
 
